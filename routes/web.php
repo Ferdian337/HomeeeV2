@@ -48,3 +48,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'dashboardController@index')->name('dashboard');
 
 ////route login////
+// Untuk USer
+route::get('/homestay', 'UserController@ListHomestay');
+route::get('/booking', 'UserController@Booking');
+route::get('/contact', 'UserController@ContactUs');
+
