@@ -30,7 +30,7 @@ Route::get('/EditKamar/{id}','PengelolaController@edit');
 route::get('/ReviewPengunjung', 'PengelolaController@ReviewPengunjung');
 
 route::get('/EditDeskripsiUmum', 'PengelolaController@EditDeskripsiUmum');
-route::post('/EditDeskripsiUmum/store', 'PengelolaController@storeDeskipsiUmum');
+route::post('/EditDeskripsiUmum/store', 'PengelolaController@storeDeskripsiUmum');
 
 route::get('/DaftarPengunjungSebelum', 'PengelolaController@DaftarPengunjungSebelum');
 route::get('/DaftarPengunjungSekarang', 'PengelolaController@DaftarPengunjungSekarang');

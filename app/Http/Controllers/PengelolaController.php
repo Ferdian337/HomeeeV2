@@ -88,7 +88,7 @@ class PengelolaController extends Controller
     	return view('pengelola/EditDeskripsiUmum');
     }
 
-    public function storeDeskipsiUmum(Request $request)
+    public function storeDeskripsiUmum(Request $request)
     {
     	$data = new homestay_utama;
     	$data->nama_hm = $request->nama_hm;
