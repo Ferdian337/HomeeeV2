@@ -26,3 +26,9 @@ route::get('/EditDeskripsiUmum', 'PengelolaController@EditDeskripsiUmum');
 route::get('/DaftarPengunjungSebelum', 'PengelolaController@DaftarPengunjungSebelum');
 route::get('/DaftarPengunjungSekarang', 'PengelolaController@DaftarPengunjungSekarang');
 route::get('/DaftarPengunjungSesudah', 'PengelolaController@DaftarPengunjungSesudah');
+
+// Untuk USer
+route::get('/homestay', 'UserController@ListHomestay');
+route::get('/booking', 'UserController@Booking');
+route::get('/contact', 'UserController@ContactUs');
+
