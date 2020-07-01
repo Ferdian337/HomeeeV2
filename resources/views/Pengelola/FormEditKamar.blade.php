@@ -246,66 +246,66 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Kamar</h1>
+         <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Edit Informasi Kamar</h6>
+            </div>
+            <div class="card-body">
+            <!-- ISI TABEL -->
+            <form method="post" action="/TambahKamar/store" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Nama Kamar</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="NamaKamar" name= "nama_h" aria-describedby="emailHelp" value="{{ $h->nama_h}}" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Fasilitas</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="FasilitasKamar" name= "fasilitas_h" aria-describedby="emailHelp" value="{{ $h->fasilitas_h}}" required>
+              </div>
+            </div>
+            <div class="form-group row">             
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Deskirpsi Kamar</label>
+              <div class="col-md-6">
+                <textarea class="form-control form-control-user" id="DeskirpsiKamar" name="deskripsi_h" rows="3" aria-describedby="emailHelp" value="{{ $h->deskripsi_h}}" required></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Jumlah Kamar</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="JumlahKamar" name="jumKmar_h" aria-describedby="emailHelp" value="{{ $h->jumKmar_h}}">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="Nama Kamar" class="col-sm-2 col-form-label">Harga Kamar</label>
+                <div class="col-md-6">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Rp.</div>
+                    </div>      
+                    <input type="text" class="form-control form-control-user" id="HargaKamar" name="hargaKmar_h" aria-describedby="emailHelp" value="{{ $h->hargaKmar_h}}" required>
+                  </div>
+                </div>
+            </div>
+            <!-- <div class="form-group row">
+                <label for="Nama Kamar" class="col-sm-2 col-form-label">Upload Foto</label>
+                <div class="col-md-6">
+                  <input type="file" class="form-control-file form-control-user" id="FotoKamar">
+                </div> -->
+            </div>
+             <hr>
+            <div class="form-group col-md-1">
+              <div class="row">
+                <a href="/dashboard" class="btn btn-primary btn-user btn-block">Submit</a>
+                <!-- <input type="submit" class="btn btn-success" value="Submit"> -->
+              </div>
+            </div>
+          </form>
+            </div>
           </div>
 
-          
-          <div class="row">
-          @foreach($homestay as $h)
-            <div class="col-lg-6">
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">{{ $h->nama_h}}</h6>
-                </div>
-                <div class="card-body">
-                  <img src="https://i.imgur.com/I86rTVl.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-                  <hr>
-                  {{ $h->deskripsi_h}}
-                  <hr>
-                 <!-- <a href="/editKamar" class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#EditModal">Edit</a> -->
-                 <a class="btn btn-primary" href="#">Hapus</a>
-                 <a class="btn btn-primary" href="/EditKamar/{{$h->id_h}}">Edit</a>
-                </div>
-              </div>
-            </div>
-            @endforeach
-            <div class="col-lg-6">
-              <!-- Basic Card Example -->
-              <!-- <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Ini Tipe Kamar</h6>
-                </div>
-                <div class="card-body">
-                  <img src="https://i.imgur.com/I86rTVl.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-                  <hr>
-                  BlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBla
-                  <hr>
-                 <a href="index.html" class="btn btn-primary btn-user btn-block">Edit</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-lg-6"> -->
-              <!-- Basic Card Example -->
-              <!-- <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Ini Tipe Kamar</h6>
-                </div>
-                <div class="card-body">
-                  <img src="https://i.imgur.com/I86rTVl.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-                  <hr>
-                  BlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBla
-                  <hr>
-                 <a href="index.html" class="btn btn-primary btn-user btn-block">Edit</a>
-                </div>
-              </div>
-
-            </div>
-          </div> -->
 
 
         <!-- Scroll to Top Button-->
@@ -327,71 +327,6 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-   <!-- Edit Modal-->
-  <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Kamar</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- ISI TABEL -->
-            <form>
-            <div class="form-group row">
-              <label for="Nama Kamar" class="col-sm-4 col-form-label">Nama Kamar</label>
-              <div class="col-md-12">
-                <input type="text" class="form-control form-control-user" id="NamaKamar" aria-describedby="emailHelp" placeholder="Masukan Nama Kamar" required>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="Nama Kamar" class="col-sm-4 col-form-label">Fasilitas</label>
-              <div class="col-md-12">
-                <input type="text" class="form-control form-control-user" id="FasilitasKamar" aria-describedby="emailHelp" placeholder="Masukan Fasilitas Kamar" required>
-              </div>
-            </div>
-            <div class="form-group row">             
-              <label for="Nama Kamar" class="col-sm-4 col-form-label">Deskirpsi Kamar</label>
-              <div class="col-md-12">
-                <textarea class="form-control form-control-user" id="DeskirpsiKamar" rows="3" aria-describedby="emailHelp" placeholder="Masukan Deskirpsi Kamar" required></textarea>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="Nama Kamar" class="col-sm-4 col-form-label">Jumlah Kamar</label>
-              <div class="col-md-12">
-                <input type="text" class="form-control form-control-user" id="JumlahKamar" aria-describedby="emailHelp" placeholder="Contoh: 6">
-              </div>
-            </div>
-            <div class="form-group row">
-                <label for="Nama Kamar" class="col-sm-4 col-form-label">Harga Kamar</label>
-                <div class="col-md-12">
-                  <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">Rp.</div>
-                    </div>      
-                    <input type="text" class="form-control form-control-user" id="HargaKamar" aria-describedby="emailHelp" placeholder="Contoh: 250000" required>
-                  </div>
-                </div>
-            </div>
-            <!-- <div class="form-group row">
-                <label for="Nama Kamar" class="col-sm-4 col-form-label">Upload Foto</label>
-                <div class="col-md-12">
-                  <input type="file" class="form-control-file form-control-user" id="FotoKamar">
-                </div>
-            </div>           -->
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="#">Hapus</a>
-          <a class="btn btn-primary" href="#">Simpan</a>
-          </form>
         </div>
       </div>
     </div>
@@ -419,7 +354,6 @@
 
   <!-- Chart JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
 
 </body>
 </html>

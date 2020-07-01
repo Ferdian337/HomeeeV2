@@ -252,29 +252,30 @@
             </div>
             <div class="card-body">
             <!-- ISI TABEL -->
-            <form>
+            <form method="post" action="/TambahKamar/store" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="form-group row">
               <label for="Nama Kamar" class="col-sm-2 col-form-label">Nama Kamar</label>
               <div class="col-md-6">
-                <input type="text" class="form-control form-control-user" id="NamaKamar" aria-describedby="emailHelp" placeholder="Masukan Nama Kamar" required>
+                <input type="text" class="form-control form-control-user" id="NamaKamar" name= "nama_h" aria-describedby="emailHelp" placeholder="Masukan Nama Kamar" required>
               </div>
             </div>
             <div class="form-group row">
               <label for="Nama Kamar" class="col-sm-2 col-form-label">Fasilitas</label>
               <div class="col-md-6">
-                <input type="text" class="form-control form-control-user" id="FasilitasKamar" aria-describedby="emailHelp" placeholder="Masukan Fasilitas Kamar" required>
+                <input type="text" class="form-control form-control-user" id="FasilitasKamar" name= "fasilitas_h" aria-describedby="emailHelp" placeholder="Masukan Fasilitas Kamar" required>
               </div>
             </div>
             <div class="form-group row">             
               <label for="Nama Kamar" class="col-sm-2 col-form-label">Deskirpsi Kamar</label>
               <div class="col-md-6">
-                <textarea class="form-control form-control-user" id="DeskirpsiKamar" rows="3" aria-describedby="emailHelp" placeholder="Masukan Deskirpsi Kamar" required></textarea>
+                <textarea class="form-control form-control-user" id="DeskirpsiKamar" name="deskripsi_h" rows="3" aria-describedby="emailHelp" placeholder="Masukan Deskirpsi Kamar" required></textarea>
               </div>
             </div>
             <div class="form-group row">
               <label for="Nama Kamar" class="col-sm-2 col-form-label">Jumlah Kamar</label>
               <div class="col-md-6">
-                <input type="text" class="form-control form-control-user" id="JumlahKamar" aria-describedby="emailHelp" placeholder="Contoh: 6">
+                <input type="text" class="form-control form-control-user" id="JumlahKamar" name="jumKmar_h" aria-describedby="emailHelp" placeholder="Contoh: 6">
               </div>
             </div>
             <div class="form-group row">
@@ -284,20 +285,21 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text">Rp.</div>
                     </div>      
-                    <input type="text" class="form-control form-control-user" id="HargaKamar" aria-describedby="emailHelp" placeholder="Contoh: 250000" required>
+                    <input type="text" class="form-control form-control-user" id="HargaKamar" name="hargaKmar_h" aria-describedby="emailHelp" placeholder="Contoh: 250000" required>
                   </div>
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="Nama Kamar" class="col-sm-2 col-form-label">Upload Foto</label>
                 <div class="col-md-6">
                   <input type="file" class="form-control-file form-control-user" id="FotoKamar">
-                </div>
+                </div> -->
             </div>
              <hr>
             <div class="form-group col-md-1">
               <div class="row">
-                <a href="#" class="btn btn-primary btn-user btn-block">Submit</a>
+                <a href="/dashboard" class="btn btn-primary btn-user btn-block">Submit</a>
+                <!-- <input type="submit" class="btn btn-success" value="Submit"> -->
               </div>
             </div>
           </form>

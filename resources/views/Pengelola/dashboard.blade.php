@@ -1,3 +1,9 @@
+@extends('layouts.app')
+
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datepicker.css')}}">
+
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -477,3 +483,5 @@
 
 </body>
 </html>
+
+@endsection
