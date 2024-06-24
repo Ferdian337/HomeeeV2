@@ -253,35 +253,36 @@
             </div>
             <div class="card-body">
             <!-- ISI TABEL -->
-            <form>
+            <form method=post action="/EditDeskripsiUmum/store" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="form-group row">
                 <label for="Nama Homestay" class="col-sm-2 col-form-label">Nama Homestay</label>
                 <div class="col-md-6">
-                  <input type="text" class="form-control form-control-user" id="NamaHomestay" aria-describedby="emailHelp" placeholder="Masukan Nama Homestay" required>
+                  <input type="text" class="form-control form-control-user" id="NamaHomestay" name="nama_hm" aria-describedby="emailHelp" placeholder="Masukan Nama Homestay" required>
                 </div>
             </div>
             <div class="form-group row">             
               <label for="Nama Kamar" class="col-sm-2 col-form-label">Deskirpsi Homestay</label>
               <div class="col-md-6">
-                <textarea class="form-control form-control-user" id="DeskirpsiHomestay" rows="3" aria-describedby="emailHelp" placeholder="Masukan Deskirpsi Homestay" required></textarea>
+                <textarea class="form-control form-control-user" id="DeskirpsiHomestay" name="deskripsi_hm" rows="3" aria-describedby="emailHelp" placeholder="Masukan Deskirpsi Homestay" required></textarea>
               </div>
             </div>
             <div class="form-group row">
                 <label for="Nama Homestay" class="col-sm-2 col-form-label">Lokasi Homestay</label>
                 <div class="col-md-6">
-                  <input type="text" class="form-control form-control-user" id="LokasiHomestay" aria-describedby="emailHelp" placeholder="Masukan Lokasi Homestay" required>
+                  <input type="text" class="form-control form-control-user" id="LokasiHomestay" name="alamat_hm" aria-describedby="emailHelp" placeholder="Masukan Lokasi Homestay" required>
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="Nama Kamar" class="col-sm-2 col-form-label">Upload Foto</label>
                 <div class="col-md-6">
                   <input type="file" class="form-control-file form-control-user" id="FotoKamar">
                 </div>
-            </div>
+            </div> -->
              <hr>
             <div class="form-group col-md-1">
               <div class="row">
-                <a href="#" class="btn btn-primary btn-user btn-block">Submit</a>
+                <a href="/dashboard" class="btn btn-primary btn-user btn-block">Submit</a>
               </div>
             </div>
           </form>

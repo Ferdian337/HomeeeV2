@@ -250,25 +250,30 @@
             <h1 class="h3 mb-0 text-gray-800">Edit Kamar</h1>
           </div>
 
+          
           <div class="row">
+          @foreach($homestay as $h)
             <div class="col-lg-6">
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Ini Tipe Kamar</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">{{ $h->nama_h}}</h6>
                 </div>
                 <div class="card-body">
                   <img src="https://i.imgur.com/I86rTVl.jpg" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
                   <hr>
-                  BlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBla
+                  {{ $h->deskripsi_h}}
                   <hr>
-                 <a href="index.html" class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#EditModal">Edit</a>
+                 <!-- <a href="/editKamar" class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#EditModal">Edit</a> -->
+                 <a class="btn btn-primary" href="#">Hapus</a>
+                 <a class="btn btn-primary" href="/EditKamar/{{$h->id_h}}">Edit</a>
                 </div>
               </div>
             </div>
+            @endforeach
             <div class="col-lg-6">
               <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
+              <!-- <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Ini Tipe Kamar</h6>
                 </div>
@@ -282,10 +287,11 @@
               </div>
             </div>
           </div>
+          
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6"> -->
               <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
+              <!-- <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Ini Tipe Kamar</h6>
                 </div>
@@ -299,6 +305,8 @@
               </div>
 
             </div>
+          </div> -->
+
           </div>
         </div>
 
@@ -374,15 +382,16 @@
                   </div>
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="Nama Kamar" class="col-sm-4 col-form-label">Upload Foto</label>
                 <div class="col-md-12">
                   <input type="file" class="form-control-file form-control-user" id="FotoKamar">
                 </div>
-            </div>          
+            </div>           -->
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">Hapus</a>
           <a class="btn btn-primary" href="#">Simpan</a>
           </form>
         </div>

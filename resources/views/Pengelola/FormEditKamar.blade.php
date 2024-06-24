@@ -1,9 +1,3 @@
-@extends('layouts.app')
-
-<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datepicker.css')}}">
-
-@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +31,8 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -52,7 +46,7 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Kelola Kamar</span>
@@ -68,7 +62,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">       
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/EditDeskripsiUmum">
           <i class="fas fa-fw fa-align-left"></i>
           <span>Edit Deskripsi Umum</span></a>
       </li>
@@ -90,9 +84,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Rentang Waktu: </h6>
-            <a class="collapse-item" href="DaftarPengunjungSebelum">Sudah Menginap</a>
-            <a class="collapse-item" href="DaftarPengunjungSekarang">Sedang Menginap</a>
-            <a class="collapse-item" href="DaftarPengunjungSesudah">Akan Menginap</a>
+            <a class="collapse-item" href="/DaftarPengunjungSebelum">Sudah Menginap</a>
+            <a class="collapse-item" href="/DaftarPengunjungSekarang">Sedang Menginap</a>
+            <a class="collapse-item" href="/DaftarPengunjungSesudah">Akan Menginap</a>
           </div>
         </div>
       </li>
@@ -113,6 +107,7 @@
       </div>
     </ul>
     <!-- End of Sidebar -->
+
 
     <!-- Start Top Bar -->
     <!-- Content Wrapper -->
@@ -247,193 +242,73 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
+        <!-- Start Main Item -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card-->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">PENDAPATAN PERBULAN</div>
-                      <!-- INPUT FROM DATABASE HERE -->
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 20.000.000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
+         <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Edit Informasi Kamar</h6>
+            </div>
+            <div class="card-body">
+            <!-- ISI TABEL -->
+            <form method="post" action="/TambahKamar/store" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Nama Kamar</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="NamaKamar" name= "nama_h" aria-describedby="emailHelp" value="{{ $h->nama_h}}" required>
               </div>
             </div>
-
-            <!-- Earnings (Annualy) Card-->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">PENDAPATAN PERTAHUN</div>
-                      <!-- INPUT FROM DATABASE HERE -->
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 120.232.000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Fasilitas</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="FasilitasKamar" name= "fasilitas_h" aria-describedby="emailHelp" value="{{ $h->fasilitas_h}}" required>
               </div>
             </div>
-
-            <!-- Jumlah Pengunjung Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Pengunjung</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <!-- INPUT FROM DATABASE HERE -->
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
+            <div class="form-group row">             
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Deskirpsi Kamar</label>
+              <div class="col-md-6">
+                <textarea class="form-control form-control-user" id="DeskirpsiKamar" name="deskripsi_h" rows="3" aria-describedby="emailHelp" value="{{ $h->deskripsi_h}}" required></textarea>
               </div>
             </div>
-
-            <!-- Pending Requests Card / Pengunjung yang akan datang -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Penunjung yang akan menginap</div>
-                      <!-- INPUT HERE -->
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-bed fa-2x text-gray-300"></i>
-                    </div>
+            <div class="form-group row">
+              <label for="Nama Kamar" class="col-sm-2 col-form-label">Jumlah Kamar</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-user" id="JumlahKamar" name="jumKmar_h" aria-describedby="emailHelp" value="{{ $h->jumKmar_h}}">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="Nama Kamar" class="col-sm-2 col-form-label">Harga Kamar</label>
+                <div class="col-md-6">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Rp.</div>
+                    </div>      
+                    <input type="text" class="form-control form-control-user" id="HargaKamar" name="hargaKmar_h" aria-describedby="emailHelp" value="{{ $h->hargaKmar_h}}" required>
                   </div>
                 </div>
+            </div>
+            <!-- <div class="form-group row">
+                <label for="Nama Kamar" class="col-sm-2 col-form-label">Upload Foto</label>
+                <div class="col-md-6">
+                  <input type="file" class="form-control-file form-control-user" id="FotoKamar">
+                </div> -->
+            </div>
+             <hr>
+            <div class="form-group col-md-1">
+              <div class="row">
+                <a href="/dashboard" class="btn btn-primary btn-user btn-block">Submit</a>
+                <!-- <input type="submit" class="btn btn-success" value="Submit"> -->
               </div>
+            </div>
+          </form>
             </div>
           </div>
 
-          <!-- Content Row -->
 
-          <div class="row">
 
-            <!-- Pendapatan Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Statistik Pendapatan</h6>      
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <div id="chartPendapatan"></div>
-                    <!-- <canvas id="myAreaChart"></canvas> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Jenis Kamar Yang Diambil</h6> 
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">                 
-                    <!-- <canvas id="myPieChart"></canvas> -->
-                  </div>
-                  <!-- Dibawah tadinya adalah indeks pie char -->
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <!-- <i class="fas fa-circle text-primary"></i> Pria -->
-                    </span>
-                    <span class="mr-2">
-                      <!-- <i class="fas fa-circle text-success"></i> Wanita -->
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Bintang Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bintang dari Pengunjung</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Bintang 1 <span class="float-right">2</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 2%" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Bintang 2 <span class="float-right">5</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Bintang 3 <span class="float-right">10</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Bintang 4 <span class="float-right">33</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Bintang 5 <span class="float-right">50</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-                     </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
+        <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
@@ -443,12 +318,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ingin Keluar?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Silahkan klik tombol "Logout" dibawah jika Anda ingin keluar</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="login.html">Logout</a>
@@ -480,8 +355,5 @@
   <!-- Chart JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-
 </body>
 </html>
-
-@endsection
